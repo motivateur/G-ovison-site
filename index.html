@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Géovision | Bureau d'Étude</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background-color: #023047;
+            color: white;
+            padding: 1.5em;
+            text-align: center;
+        }
+        header img {
+            height: 60px;
+            margin-bottom: 10px;
+        }
+        nav {
+            background: #219ebc;
+            display: flex;
+            justify-content: center;
+            gap: 1em;
+            padding: 1em;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        section {
+            padding: 2em;
+            max-width: 1000px;
+            margin: auto;
+        }
+        .experts, .realisations {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1em;
+        }
+        .card {
+            background: white;
+            padding: 1em;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 1em;
+            object-fit: cover;
+        }
+        footer {
+            background-color: #023047;
+            color: white;
+            text-align: center;
+            padding: 1.5em;
+            margin-top: 2em;
+        }
+        h2 {
+            color: #023047;
+        }
+        .whatsapp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        .whatsapp img {
+            height: 60px;
+            width: 60px;
+        }
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            max-width: 100%;
+            margin: 2em 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .carousel img {
+            width: 100%;
+            height: auto;
+            display: none;
+        }
+        .carousel img.active {
+            display: block;
+        }
+        #map {
+            width: 100%;
+            height: 400px;
+            border-radius: 10px;
+            margin-top: 1em;
+        }
+    </style>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+</head>
+<body>
+    <header>
+        <img src="images/logo.png" alt="Logo Géovision">
+        <h1>GÉOVISION</h1>
+        <p>Bureau d'étude basé à Kinshasa, spécialisé en SIG, télédétection, foncier, topographie et environnement</p>
+    </header>
+    <nav>
+        <a href="#presentation">Présentation</a>
+        <a href="#equipe">Notre Équipe</a>
+        <a href="#realisations">Réalisations</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section id="presentation">
+        <h2>Présentation</h2>
+        <p>Géovision est un bureau d'étude congolais innovant, expert en systèmes d'information géographique (SIG), télédétection, foncier, topographie et environnement. Grâce à une équipe pluridisciplinaire, nous accompagnons les institutions publiques, ONG, et entreprises privées dans leurs projets d’aménagement, gestion de ressources et transformation digitale.</p>
+        <div class="carousel">
+            <img src="images/presentation1.jpg" alt="Vue satellite 1" class="active">
+            <img src="images/presentation2.jpg" alt="Vue satellite 2">
+            <img src="images/presentation3.jpg" alt="Vue terrain">
+        </div>
+    </section>
+
+    <section id="equipe">
+        <h2>Notre Équipe</h2>
+        <div class="experts">
+            <div class="card">
+                <img src="images/lala.jpg" alt="Lala Isangi Abraham">
+                <h3>Lala Isangi Abraham</h3>
+                <p>Expert en SIG, télédétection et marketing digital.</p>
+            </div>
+            <div class="card">
+                <img src="images/lobola.jpg" alt="Lobola Bokutu Pinas">
+                <h3>Lobola Bokutu Pinas</h3>
+                <p>Expert en SIG, télédétection et nouvelles technologies.</p>
+            </div>
+            <div class="card">
+                <img src="images/tychique.jpg" alt="Tychique Tshimenga">
+                <h3>Tychique Tshimenga</h3>
+                <p>Expert en environnement, foncier, changement climatique et gestion de l'eau.</p>
+            </div>
+            <div class="card">
+                <img src="images/yan.jpg" alt="Yan Sapa">
+                <h3>Yan Sapa</h3>
+                <p>Expert en ressources en eau, changement climatique et logistique.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="realisations">
+        <h2>Nos Réalisations</h2>
+        <div class="realisations">
+            <div class="card">
+                <img src="images/concession.jpg" alt="Délimitation foncière">
+                <h4>Délimitation foncière</h4>
+                <p>Plusieurs concessions agricoles délimitées dans la province du Kongo Central.</p>
+            </div>
+            <div class="card">
+                <img src="images/formation.jpg" alt="Formation SIG">
+                <h4>Formations SIG</h4>
+                <p>Organisation de formations en cartographie numérique et techniques de collecte de données.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Email : <a href="mailto:contact@geovision.cd">contact@geovision.cd</a></p>
+        <p>Téléphone : +243 000 000 000</p>
+        <p>Adresse : Kinshasa, RDC</p>
+        <div id="map"></div>
+        <form onsubmit="alert('Merci pour votre message !'); return false;">
+            <label>Nom:<br><input type="text" required></label><br><br>
+            <label>Email:<br><input type="email" required></label><br><br>
+            <label>Message:<br><textarea required></textarea></label><br><br>
+            <button type="submit">Envoyer</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Géovision. Tous droits réservés.</p>
+    </footer>
+
+    <a class="whatsapp" href="https://wa.me/243000000000" target="_blank">
+        <img src="images/whatsapp-icon.png" alt="Contact WhatsApp">
+    </a>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Carousel
+        const images = document.querySelectorAll('.carousel img');
+        let index = 0;
+        setInterval(() => {
+            images[index].classList.remove('active');
+            index = (index + 1) % images.length;
+            images[index].classList.add('active');
+        }, 4000);
+
+        // Map
+        const map = L.map('map').setView([-4.325, 15.322], 13);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+        L.marker([-4.325, 15.322]).addTo(map)
+            .bindPopup('Bureau Géovision, Kinshasa')
+            .openPopup();
+    </script>
+</body>
+</html>
